@@ -55,16 +55,11 @@ def compare_ip_lists(file1, file2):
         file1 (str): 比較元ファイル1
         file2 (str): 比較元ファイル2
     """
-    p1, p2 = Path(file1), Path(file2)
-    label1, label2 = p1.name, p2.name
-    if label1 == label2:
-        label1, label2 = p1.as_posix(), p2.as_posix()
-
-    print(f"読み込み中: {file1}")
+    print(f"ファイル1を読み込み中: {file1}")
     ip_list1 = load_ip_list(file1)
     print(f"  読み込み件数: {len(ip_list1)}\n")
     
-    print(f"読み込み中: {file2}")
+    print(f"ファイル2を読み込み中: {file2}")
     ip_list2 = load_ip_list(file2)
     print(f"  読み込み件数: {len(ip_list2)}\n")
     
@@ -85,14 +80,14 @@ def compare_ip_lists(file1, file2):
     else:
         print("  なし")
     
-    print(f"\n【{label1} にのみ存在】: {len(only_in_file1)}件")
+    print(f"\n【ファイル1にのみ存在】: {len(only_in_file1)}件")
     if only_in_file1:
         for ip in sorted(only_in_file1):
             print(f"  {ip}")
     else:
         print("  なし")
     
-    print(f"\n【{label2} にのみ存在】: {len(only_in_file2)}件")
+    print(f"\n【ファイル2にのみ存在】: {len(only_in_file2)}件")
     if only_in_file2:
         for ip in sorted(only_in_file2):
             print(f"  {ip}")
@@ -100,8 +95,8 @@ def compare_ip_lists(file1, file2):
         print("  なし")
     
     print(f"\n【統計情報】")
-    print(f"  {label1} の合計: {len(ip_list1)}")
-    print(f"  {label2} の合計: {len(ip_list2)}")
+    print(f"  ファイル1の合計: {len(ip_list1)}")
+    print(f"  ファイル2の合計: {len(ip_list2)}")
     print(f"  共通: {len(common)}")
     print(f"  差分: {len(only_in_file1) + len(only_in_file2)}")
 
