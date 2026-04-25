@@ -1,0 +1,4 @@
+# Python パッケージ依存ファイル
+# 下記のコマンドでインストール: pip install -r requirements.txt
+
+# 必要なパッケージを追加してください
